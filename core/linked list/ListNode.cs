@@ -104,6 +104,53 @@ namespace Abbyy.Vantage.Utils
 			Console.WriteLine( "null" );
 			Debug.WriteLine( "null" );
 		}
+		/// <summary>
+		/// Determines whether the specified object is equal to the current object.
+		/// </summary>
+		/// <param name="obj">The list to compare with the current list.</param>
+		/// <returns>true if the specified list is equal to the current list; otherwise, false.</returns>
+		public override bool Equals( object obj )
+		{
+			if( null == obj )
+				return false;
+
+			if( ReferenceEquals( this, obj ) )
+				return true;
+
+			var d = obj as ListNode;
+
+			if( null == d )
+				return false;
+
+			if( d.Value != Value )
+				return false;
+
+			if( Next == null && null == d.Next )
+				return true;
+
+			if( Next == null || null == d.Next )
+				return false;
+
+			return Next.Equals( d.Next );
+		}
+		/// <summary>
+		/// Serves as the default hash function.
+		/// </summary>
+		/// <returns>A hash code for the current object.</returns>
+		public override int GetHashCode()
+		{
+			HashCode hash = new();
+
+			var cur = this;
+
+			while( null != cur ) 
+			{
+				hash.Add( cur.Value );
+				cur = cur.Next;
+			} 
+			
+			return hash.ToHashCode();
+		}
 		#endregion
 	}
 }

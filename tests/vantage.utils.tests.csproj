@@ -5,6 +5,8 @@
 
     <IsPackable>false</IsPackable>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AssemblyName>abbyy.vantage.utils.tests</AssemblyName>
+		<RootNamespace>Abbyy.Vantage.Utils.Tests</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
