@@ -11,8 +11,4 @@
     <OutputPath>..\_bin</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="array\" />
-  </ItemGroup>
-
 </Project>

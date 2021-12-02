@@ -132,12 +132,12 @@ namespace Abbyy.Vantage.Utils.Sandbox
 			/// <summary>
 			/// Gets command.
 			/// </summary>
-			public string Command { get; private set; }
+			public string Command { get; }
 			/// <summary>
 			/// Get arguments.
 			/// For simplicity our team decided to work only with integers at this version.
 			/// </summary>
-			public int [] Arguments { get; private set; }
+			public int [] Arguments { get; }
 			#endregion
 
 			#region Class initialization
@@ -147,7 +147,26 @@ namespace Abbyy.Vantage.Utils.Sandbox
 			/// <param name="content">Raw command line input.</param>
 			public CommandLineRequest( string content ) 
 			{
-				Parse( content );
+				var parts = content.Split( ' ', StringSplitOptions.RemoveEmptyEntries );
+
+				if( parts.Length < 1 )
+					throw new ArgumentException( "Invalid command line input" );
+
+				Command = parts [ 0 ];
+
+				var args = new List<int>();
+				var candidates = parts [ 1.. ];
+
+				foreach( var c in candidates )
+				{
+					// Let's try to discard all non-number garbage.
+					if( !int.TryParse( c, out var v ) )
+						continue;
+
+					args.Add( v );
+				}
+
+				Arguments = args.ToArray();
 			}
 			/// <summary>
 			/// Creates an object representing command line request.
@@ -166,35 +185,6 @@ namespace Abbyy.Vantage.Utils.Sandbox
 				{}
 
 				return r;
-			}
-			#endregion
-
-			#region Class parsing methods
-			/// <summary>
-			/// 
-			/// </summary>
-			private void Parse( string content ) 
-			{
-				var parts = content.Split( ' ', StringSplitOptions.RemoveEmptyEntries );
-
-				if( parts.Length < 1 )
-					throw new ArgumentException( "Invalid command line input" );
-
-				Command = parts [ 0 ];
-
-				var args = new List<int>();
-				var candidates = parts [ 1.. ];
-
-				foreach( var c in candidates ) 
-				{
-					// Let's try to discard all non-number garbage.
-					if( !int.TryParse( c, out var v ) )
-						continue;
-
-					args.Add( v );
-				}
-
-				Arguments = args.ToArray();
 			}
 			#endregion
 		}

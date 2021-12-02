@@ -8,9 +8,9 @@ namespace Abbyy.Vantage.Utils.Tests
 	/// <summary>
 	/// Tests main public methods of linked list helper.
 	/// 
-	/// dotnet test _bin\tests\abbyy.vantage.utils.tests.dll -v n --filter "FullyQualifiedName~LinkedList"
+	/// dotnet test _bin\tests\abbyy.vantage.utils.tests.dll -v n --filter "FullyQualifiedName~LinkedListTester"
 	/// </summary>
-	public class LinkedList
+	public class LinkedListTester
 	{
 		#region Class 'Reverse' tests
 		/// <summary>
