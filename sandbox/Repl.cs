@@ -25,19 +25,34 @@ namespace Abbyy.Vantage.Utils.Sandbox
 		private const string COMMAND_FIND_MISSING = "missing";
 		#endregion
 
+		#region Class members
+		/// <summary>
+		/// 
+		/// </summary>
+		private bool _run;
+		#endregion
+
 		#region Class public methods
 		/// <summary>
 		/// Runs main command cycle.
 		/// </summary>
 		public void Run() 
 		{
-			while( true ) 
+			Console.WriteLine( "ABBYY vantage utils REPL is running..." );
+			Console.WriteLine( "Enter command and arguments separated by space:" );
+			Console.WriteLine();
+
+			_run = true;
+
+			while( _run ) 
 			{
 				Console.Write( ">" );
 
 				var content = Console.ReadLine();
 
 				Execute( CommandLineRequest.Create( content ) );
+
+				Console.WriteLine();
 			}
 		}
 		/// <summary>
@@ -51,6 +66,7 @@ namespace Abbyy.Vantage.Utils.Sandbox
 				switch( r?.Command )
 				{
 					case COMMAND_EXIT:
+						_run = false;
 						return;
 
 					case COMMAND_REVERSE:
