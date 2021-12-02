@@ -41,3 +41,5 @@ Enter *missing* command and numbers separated by space
 
     make run
     > missing 1 2 3 5
+
+![alt text](https://github.com/megahoneybadger/abbyy/blob/media/abby1.png)
