@@ -21,6 +21,7 @@ ed.db-wal
 x64/
 x86/
 bld/
+_bin/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
