@@ -34,6 +34,8 @@ Enter *reverse* command and numbers separated by space
 
     make run
     > reverse 1 2 3 4 5
+		
+![alt text](https://github.com/megahoneybadger/abbyy/blob/media/abbyy2.png)
 
 ***Find missing numbers***
 
@@ -42,4 +44,4 @@ Enter *missing* command and numbers separated by space
     make run
     > missing 1 2 3 5
 
-![alt text](https://github.com/megahoneybadger/abbyy/blob/media/abby1.png)
+![alt text](https://github.com/megahoneybadger/abbyy/blob/media/abbyy1.png)
