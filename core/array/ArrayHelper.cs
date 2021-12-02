@@ -1,7 +1,6 @@
 ﻿#region Usings
 using System;
 using System.Collections.Generic;
-using System.Linq;
 #endregion
 
 namespace Abbyy.Vantage.Utils
@@ -50,6 +49,8 @@ namespace Abbyy.Vantage.Utils
 
 			if( !hasMin && !hasMax )
 				return new [] { min, max };
+
+			// let's use values as pigeon holes (i.e. as indexes)
 
 			for( int i = 0; i < len; ++i )
 			{

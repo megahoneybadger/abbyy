@@ -1,6 +1,7 @@
 ﻿#region Usings
 using System;
 using System.Collections.Generic;
+using System.Linq;
 #endregion
 
 namespace Abbyy.Vantage.Utils.Sandbox
@@ -91,10 +92,20 @@ namespace Abbyy.Vantage.Utils.Sandbox
 		/// 
 		/// </summary>
 		/// <param name="error"></param>
-		private static void ShowError( string error ) 
+		private static void ShowError( string error, ConsoleColor color = ConsoleColor.DarkRed ) 
 		{
-			Console.ForegroundColor = ConsoleColor.DarkRed;
+			Console.ForegroundColor = color;
 			Console.Error.WriteLine( error );
+			Console.ResetColor();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="error"></param>
+		private static void ShowAnswer( string answer, ConsoleColor color = ConsoleColor.Green )
+		{
+			Console.ForegroundColor = color;
+			Console.WriteLine( answer );
 			Console.ResetColor();
 		}
 		#endregion
@@ -111,14 +122,41 @@ namespace Abbyy.Vantage.Utils.Sandbox
 
 			var res = LinkedListHelper.Reverse( list );
 
-			Console.WriteLine( $"Reversed list: {( res?.ToFullString() ?? "(empty)" )}" );
+			ShowAnswer( $"Reversed list: {( res?.ToFullString() ?? "(empty)" )}" );
 		}
 		/// <summary>
 		/// Wraps search of missing numbers in an array.
 		/// </summary>
 		private void FindMissingNumbers( int [] nums )
 		{
+			var nMinusOne = nums.Length;
+			var n = nMinusOne + 1;
 
+			nums = nums.Distinct().ToArray();
+
+			if( 0 == nums.Length  )
+			{
+				ShowError( "Sequnce can not be empty." );
+				return;
+			}
+
+			if( nums.Length != nMinusOne ) 
+			{
+				ShowError( "Sequnce does not allow duplicates." );
+				return;
+			}
+			
+			if( !nums.All( x => x >= 0 && x <= n ) ) 
+			{
+				ShowError( $"Numbers must be in range [0..{n}]" );
+				return;
+			}
+
+			var res = ArrayHelper.FindMissingNumbers( nums );
+
+			Array.Sort( res );
+
+			ShowAnswer( $"Missing numbers: { string.Join( " and ", res ) }" );
 		}
 		#endregion
 
