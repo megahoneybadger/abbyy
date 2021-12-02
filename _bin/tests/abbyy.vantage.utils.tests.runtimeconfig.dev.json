@@ -1,0 +1,10 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\plochish\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\plochish\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Progress\\ToolboxNugetPackages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ]
+  }
+}

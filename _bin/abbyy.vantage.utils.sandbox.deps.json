@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "abbyy.vantage.utils.sandbox/1.0.0": {
+        "dependencies": {
+          "abbyy.vantage.utils.core": "1.0.0"
+        },
+        "runtime": {
+          "abbyy.vantage.utils.sandbox.dll": {}
+        }
+      },
+      "abbyy.vantage.utils.core/1.0.0": {
+        "runtime": {
+          "abbyy.vantage.utils.core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "abbyy.vantage.utils.sandbox/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "abbyy.vantage.utils.core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
