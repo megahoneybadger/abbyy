@@ -45,3 +45,9 @@ Enter *missing* command and numbers separated by space
     > missing 1 2 3 5
 
 ![alt text](https://github.com/megahoneybadger/abbyy/blob/media/abbyy1.png)
+
+
+### How to use with docker
+Our amazing library is also available via docker image (just in case if you do have .net core runtime installed):
+
+    sudo docker run -it megahoneybadger1/abbyy
