@@ -29,12 +29,14 @@ Unfortunately our team is very busy right now and we managed to implement only t
 Here is how you can play around with those functions:
 
 ***Reverse a linked list***
+
 Enter *reverse* command and numbers separated by space
 
     make run
     > reverse 1 2 3 4 5
 
 ***Find missing numbers***
+
 Enter *missing* command and numbers separated by space
 
     make run
