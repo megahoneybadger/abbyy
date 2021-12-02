@@ -28,7 +28,7 @@ namespace Abbyy.Vantage.Utils.Sandbox
 
 		#region Class members
 		/// <summary>
-		/// 
+		/// Indicates whether repl loop is running.
 		/// </summary>
 		private bool _run;
 		#endregion

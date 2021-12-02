@@ -227,7 +227,5 @@ namespace Abbyy.Vantage.Utils.Tests
 			return res;
 		}
 		#endregion
-
-
 	}
 }
