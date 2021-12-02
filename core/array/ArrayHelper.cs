@@ -57,79 +57,78 @@ namespace Abbyy.Vantage.Utils
 		/// <returns>Two missing numbers as an array</returns>
 		public static int [] FindMissingNumbersOld( int [] nums )
 		{
-			//var len = nums.Length;
+			var len = nums.Length;
 
-			//var min = 0;
-			//var max = len + 1;
+			var min = 0;
+			var max = len + 1;
 
-			//var hasMin = false;
-			//var hasMax = false;
+			var hasMin = false;
+			var hasMax = false;
 
-			//for( int i = 0; i < len; ++i )
-			//{
-			//	var n = nums [ i ];
+			for( int i = 0; i < len; ++i )
+			{
+				var n = nums [ i ];
 
-			//	if( n <= 0 || n >= max )
-			//	{
-			//		nums [ i ] = max + 1;
-			//	}
+				if( n <= 0 || n >= max )
+				{
+					nums [ i ] = max + 1;
+				}
 
-			//	if( n == min )
-			//	{
-			//		hasMin = true;
-			//	}
+				if( n == min )
+				{
+					hasMin = true;
+				}
 
-			//	if( n == max )
-			//	{
-			//		hasMax = true;
-			//	}
-			//}
+				if( n == max )
+				{
+					hasMax = true;
+				}
+			}
 
-			//if( !hasMin && !hasMax )
-			//	return new [] { min, max };
+			if( !hasMin && !hasMax )
+				return new [] { min, max };
 
-			//// let's use values as pigeon holes (i.e. as indexes)
+			// let's use values as pigeon holes (i.e. as indexes)
 
-			//for( int i = 0; i < len; ++i )
-			//{
-			//	var n = nums [ i ];
-			//	var index = Math.Abs( n );
+			for( int i = 0; i < len; ++i )
+			{
+				var n = nums [ i ];
+				var index = Math.Abs( n );
 
-			//	if( index > max )
-			//		continue;
+				if( index > max )
+					continue;
 
-			//	--index;
+				--index;
 
-			//	if( nums [ index ] > 0 )
-			//	{
-			//		nums [ index ] *= -1;
-			//	}
-			//}
+				if( nums [ index ] > 0 )
+				{
+					nums [ index ] *= -1;
+				}
+			}
 
-			//var list = new List<int>();
+			var list = new List<int>();
 
-			//for( int i = 0; i < len; ++i )
-			//{
-			//	var n = nums [ i ];
+			for( int i = 0; i < len; ++i )
+			{
+				var n = nums [ i ];
 
-			//	if( n >= 0 )
-			//	{
-			//		list.Add( i + 1 );
-			//	}
-			//}
+				if( n >= 0 )
+				{
+					list.Add( i + 1 );
+				}
+			}
 
-			//if( !hasMin )
-			//{
-			//	list.Add( min );
-			//}
+			if( !hasMin )
+			{
+				list.Add( min );
+			}
 
-			//if( !hasMax )
-			//{
-			//	list.Add( max );
-			//}
+			if( !hasMax )
+			{
+				list.Add( max );
+			}
 
-			//return list.ToArray();
-			return null;
+			return list.ToArray();
 		}
 		#endregion
 	}
