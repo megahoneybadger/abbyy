@@ -1,6 +1,7 @@
 ﻿#region Usings
 using System;
 using System.Diagnostics;
+using System.Text;
 #endregion
 
 namespace Abbyy.Vantage.Utils
@@ -103,6 +104,24 @@ namespace Abbyy.Vantage.Utils
 
 			Console.WriteLine( "null" );
 			Debug.WriteLine( "null" );
+		}
+		/// <summary>
+		/// Returns a string that represents the whole list.
+		/// </summary>
+		public string ToFullString()
+		{
+			var sb = new StringBuilder();
+			var current = this;
+
+			while( null != current )
+			{
+				sb.Append( current.Value + " > " );
+				current = current.Next;
+			}
+
+			sb.Append( "null" );
+
+			return sb.ToString();
 		}
 		/// <summary>
 		/// Determines whether the specified object is equal to the current object.
