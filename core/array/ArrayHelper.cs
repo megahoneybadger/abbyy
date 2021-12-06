@@ -21,32 +21,27 @@ namespace Abbyy.Vantage.Utils
 		public static int[] FindMissingNumbers( int [] arr ) 
 		{
 			var n = arr.Length + 1;
+			
+			var existingSum = arr.Sum();
+			var expectedTotalSum = ( n * ( n + 1 ) ) / 2;
 
-			// Sum of 2 missing numbers
-			int sum = ( n * ( n + 1 ) ) / 2 -	arr.Sum();
+			int sumTwoMissing = expectedTotalSum - existingSum;
+			
+			int avgTwoMissing = ( sumTwoMissing / 2 );
 
-			// Find average of two elements
-			int avg = ( sum / 2 );
+			var existingSumSmallerHalf = arr
+				.Where( x => x <= avgTwoMissing )
+				.Sum();
 
-			int sumSmallerHalf = 0,	sumGreaterHalf = 0;
+			var existingSumGreaterHalf = arr
+				.Where( x => x > avgTwoMissing )
+				.Sum();
+	
+			int expectedSumSmallerHalf = ( avgTwoMissing * ( avgTwoMissing + 1 ) ) / 2;
 
-			for( int i = 0; i < n - 1; i++ )
-			{
-				if( arr [ i ] <= avg )
-				{
-					sumSmallerHalf += arr [ i ];
-				}
-				else
-				{
-					sumGreaterHalf += arr [ i ];
-				}
-			}
+			var first = expectedSumSmallerHalf - existingSumSmallerHalf;
 
-			int totalSmallerHalf = ( avg * ( avg + 1 ) ) / 2;
-
-			var first = totalSmallerHalf - sumSmallerHalf;
-
-			var second = ( ( n * ( n + 1 ) ) / 2 - totalSmallerHalf ) - sumGreaterHalf;
+			var second = expectedTotalSum - expectedSumSmallerHalf - existingSumGreaterHalf;
 
 			return new [] { first, second };
 		}
